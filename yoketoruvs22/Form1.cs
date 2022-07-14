@@ -87,6 +87,16 @@ namespace yoketoruvs22
                     nextState = State.Clear;
                 }
             }
+
+            if(currentState==State.Game)
+            {
+                UpdateGame();
+            }
+        }
+
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
         }
 
         void initProc()
