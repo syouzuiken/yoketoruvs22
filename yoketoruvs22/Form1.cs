@@ -121,6 +121,12 @@ namespace yoketoruvs22
                     startButton.Visible = false;
                     copyLabel.Visible = false;
                     hiLabel.Visible = false;
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+
+                    }
                     break;
 
                 case State.Gameover:
