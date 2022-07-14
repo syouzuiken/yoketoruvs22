@@ -92,7 +92,7 @@ namespace yoketoruvs22
             // 
             this.timelabel.AutoSize = true;
             this.timelabel.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.timelabel.Location = new System.Drawing.Point(13, 13);
+            this.timelabel.Location = new System.Drawing.Point(44, 13);
             this.timelabel.Name = "timelabel";
             this.timelabel.Size = new System.Drawing.Size(149, 45);
             this.timelabel.TabIndex = 4;

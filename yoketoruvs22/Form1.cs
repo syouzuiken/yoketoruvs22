@@ -20,6 +20,9 @@ namespace yoketoruvs22
         const int ItemMax = 10;
         const int ChrMax = PlayerMax + EnemyrMax + ItemMax;
         Label[] chrs = new Label[ChrMax];
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+        const int SpeedMax = 20;
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyrMax;
@@ -40,7 +43,7 @@ namespace yoketoruvs22
         }
         State currentState = State.None;
         State nextState = State.Title;
-
+   
         [DllImport("user32.dll")]
 
         public static extern short GetAsyncKeyState(int vKey);
@@ -55,7 +58,7 @@ namespace yoketoruvs22
                 chrs[i].AutoSize = true;
                 if(i==PlayerIndex)
                 {
-                    chrs[i].Text = EnemyText;
+                    chrs[i].Text = PlayerText;
                 }
                 else if(i<ItemIndex)
                 {
@@ -98,6 +101,33 @@ namespace yoketoruvs22
         void UpdateGame()
         {
             Point mp = PointToClient(MousePosition);
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
+
+            for(int i=EnemyIndex;i<ChrMax;i++)
+            {
+                chrs[i].Left += vx[i];
+                chrs[i].Top += vy[i];
+                if (chrs[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+
+                if (chrs[i].Right > ClientSize.Width)
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                }
+
+                if (chrs[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+
+                if (chrs[i].Bottom > ClientSize.Height)
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
+            }
         }
 
         void initProc()
@@ -126,7 +156,8 @@ namespace yoketoruvs22
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
-
+                        vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
                     break;
 
