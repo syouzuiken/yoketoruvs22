@@ -29,28 +29,31 @@ namespace yoketoruvs22
         /// </summary>
         private void InitializeComponent()
         {
-            this.titlelabel = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
-            this.scorelabel = new System.Windows.Forms.Label();
-            this.copylabel = new System.Windows.Forms.Label();
+            this.hiLabel = new System.Windows.Forms.Label();
+            this.copyLabel = new System.Windows.Forms.Label();
             this.timelabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.gameoverlabel = new System.Windows.Forms.Label();
-            this.toTitleButton = new System.Windows.Forms.Button();
+            this.gameoverLabel = new System.Windows.Forms.Label();
+            this.titleButton = new System.Windows.Forms.Button();
+            this.clearLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // titlelabel
+            // titleLabel
             // 
-            this.titlelabel.AutoSize = true;
-            this.titlelabel.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.titlelabel.ForeColor = System.Drawing.Color.Coral;
-            this.titlelabel.Location = new System.Drawing.Point(204, 90);
-            this.titlelabel.Name = "titlelabel";
-            this.titlelabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.titlelabel.Size = new System.Drawing.Size(393, 89);
-            this.titlelabel.TabIndex = 0;
-            this.titlelabel.Text = "よけとる2022";
-            this.titlelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel.ForeColor = System.Drawing.Color.Coral;
+            this.titleLabel.Location = new System.Drawing.Point(204, 90);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.titleLabel.Size = new System.Drawing.Size(393, 89);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "よけとる2022";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // startButton
             // 
@@ -62,26 +65,27 @@ namespace yoketoruvs22
             this.startButton.TabIndex = 1;
             this.startButton.Text = "スタート!!";
             this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // scorelabel
+            // hiLabel
             // 
-            this.scorelabel.AutoSize = true;
-            this.scorelabel.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.scorelabel.Location = new System.Drawing.Point(282, 201);
-            this.scorelabel.Name = "scorelabel";
-            this.scorelabel.Size = new System.Drawing.Size(237, 45);
-            this.scorelabel.TabIndex = 2;
-            this.scorelabel.Text = "High Score 100";
+            this.hiLabel.AutoSize = true;
+            this.hiLabel.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.hiLabel.Location = new System.Drawing.Point(282, 201);
+            this.hiLabel.Name = "hiLabel";
+            this.hiLabel.Size = new System.Drawing.Size(237, 45);
+            this.hiLabel.TabIndex = 2;
+            this.hiLabel.Text = "High Score 100";
             // 
-            // copylabel
+            // copyLabel
             // 
-            this.copylabel.AutoSize = true;
-            this.copylabel.Font = new System.Drawing.Font("Yu Gothic UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.copylabel.Location = new System.Drawing.Point(238, 410);
-            this.copylabel.Name = "copylabel";
-            this.copylabel.Size = new System.Drawing.Size(324, 31);
-            this.copylabel.TabIndex = 3;
-            this.copylabel.Text = "Copyright©2022　ショウズイケン";
+            this.copyLabel.AutoSize = true;
+            this.copyLabel.Font = new System.Drawing.Font("Yu Gothic UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.copyLabel.Location = new System.Drawing.Point(238, 410);
+            this.copyLabel.Name = "copyLabel";
+            this.copyLabel.Size = new System.Drawing.Size(324, 31);
+            this.copyLabel.TabIndex = 3;
+            this.copyLabel.Text = "Copyright©2022　ショウズイケン";
             // 
             // timelabel
             // 
@@ -103,42 +107,67 @@ namespace yoketoruvs22
             this.label3.TabIndex = 5;
             this.label3.Text = "★：10";
             // 
-            // gameoverlabel
+            // gameoverLabel
             // 
-            this.gameoverlabel.AutoSize = true;
-            this.gameoverlabel.BackColor = System.Drawing.SystemColors.Control;
-            this.gameoverlabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gameoverlabel.ForeColor = System.Drawing.Color.Crimson;
-            this.gameoverlabel.Location = new System.Drawing.Point(435, 232);
-            this.gameoverlabel.Name = "gameoverlabel";
-            this.gameoverlabel.Size = new System.Drawing.Size(368, 86);
-            this.gameoverlabel.TabIndex = 6;
-            this.gameoverlabel.Text = "GAMEOVER";
+            this.gameoverLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gameoverLabel.AutoSize = true;
+            this.gameoverLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.gameoverLabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gameoverLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.gameoverLabel.Location = new System.Drawing.Point(218, 190);
+            this.gameoverLabel.Name = "gameoverLabel";
+            this.gameoverLabel.Size = new System.Drawing.Size(368, 86);
+            this.gameoverLabel.TabIndex = 6;
+            this.gameoverLabel.Text = "GAMEOVER";
+            this.gameoverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // toTitleButton
+            // titleButton
             // 
-            this.toTitleButton.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.toTitleButton.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toTitleButton.Location = new System.Drawing.Point(453, 327);
-            this.toTitleButton.Name = "toTitleButton";
-            this.toTitleButton.Size = new System.Drawing.Size(237, 80);
-            this.toTitleButton.TabIndex = 7;
-            this.toTitleButton.Text = "タイトルへ";
-            this.toTitleButton.UseVisualStyleBackColor = false;
+            this.titleButton.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.titleButton.Font = new System.Drawing.Font("Yu Gothic UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.titleButton.Location = new System.Drawing.Point(282, 279);
+            this.titleButton.Name = "titleButton";
+            this.titleButton.Size = new System.Drawing.Size(237, 80);
+            this.titleButton.TabIndex = 7;
+            this.titleButton.Text = "タイトルへ";
+            this.titleButton.UseVisualStyleBackColor = false;
+            // 
+            // clearLabel
+            // 
+            this.clearLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearLabel.AutoSize = true;
+            this.clearLabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clearLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.clearLabel.Location = new System.Drawing.Point(272, 179);
+            this.clearLabel.Name = "clearLabel";
+            this.clearLabel.Size = new System.Drawing.Size(254, 86);
+            this.clearLabel.TabIndex = 8;
+            this.clearLabel.Text = "CLEAR!!";
+            this.clearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toTitleButton);
-            this.Controls.Add(this.gameoverlabel);
+            this.Controls.Add(this.clearLabel);
+            this.Controls.Add(this.titleButton);
+            this.Controls.Add(this.gameoverLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.timelabel);
-            this.Controls.Add(this.copylabel);
-            this.Controls.Add(this.scorelabel);
+            this.Controls.Add(this.copyLabel);
+            this.Controls.Add(this.hiLabel);
             this.Controls.Add(this.startButton);
-            this.Controls.Add(this.titlelabel);
+            this.Controls.Add(this.titleLabel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -148,14 +177,16 @@ namespace yoketoruvs22
 
         #endregion
 
-        private System.Windows.Forms.Label titlelabel;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Label scorelabel;
-        private System.Windows.Forms.Label copylabel;
+        private System.Windows.Forms.Label hiLabel;
+        private System.Windows.Forms.Label copyLabel;
         private System.Windows.Forms.Label timelabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label gameoverlabel;
-        private System.Windows.Forms.Button toTitleButton;
+        private System.Windows.Forms.Label gameoverLabel;
+        private System.Windows.Forms.Button titleButton;
+        private System.Windows.Forms.Label clearLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
