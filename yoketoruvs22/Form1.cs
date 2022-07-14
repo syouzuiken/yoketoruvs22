@@ -7,11 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace yoketoruvs22
 {
     public partial class Form1 : Form
     {
+        const bool isDebug = true;
+
+        const int PlayerMax = 1;
+        const int EnemyrMax = 10;
+        const int ItemMax = 10;
+        const int ChrMax = PlayerMax + EnemyrMax + ItemMax;
+        Label[] chrs = new Label[ChrMax];
+        const int PlayerIndex = 0;
+        const int EnemyIndex = PlayerIndex + PlayerMax;
+        const int ItemIndex = EnemyIndex + EnemyrMax;
+
+        const string PlayerText = "(>_<)";
+        const string EnemyText = "◆";
+        const string ItemText = "★";
+
+        static Random rand = new Random();
+
         enum State
         {
             None = -1,
@@ -22,6 +40,11 @@ namespace yoketoruvs22
         }
         State currentState = State.None;
         State nextState = State.Title;
+
+        [DllImport("user32.dll")]
+
+        public static extern short GetAsyncKeyState(int vKey);
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +55,18 @@ namespace yoketoruvs22
             if(nextState!=State.None)
             {
                 initProc();
+            }
+
+            if(isDebug)
+            {
+                if(GetAsyncKeyState((int)Keys.O)<0)
+                {
+                    nextState = State.Gameover;
+                }
+                else if(GetAsyncKeyState((int)Keys.C)<0)
+                {
+                    nextState = State.Clear;
+                }
             }
         }
 
@@ -58,12 +93,28 @@ namespace yoketoruvs22
                     copyLabel.Visible = false;
                     hiLabel.Visible = false;
                     break;
+
+                case State.Gameover:
+                    gameoverLabel.Visible = true;
+                    titleButton.Visible = true;
+                    break;
+
+                case State.Clear:
+                    clearLabel.Visible = true;
+                    titleButton.Visible = true;
+                    hiLabel.Visible = true;
+                    break;
             }
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {
             nextState = State.Game;
+        }
+
+        private void titleButton_Click(object sender, EventArgs e)
+        {
+            nextState = State.Title;
         }
     }
 }

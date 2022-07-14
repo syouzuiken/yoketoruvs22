@@ -133,6 +133,7 @@ namespace yoketoruvs22
             this.titleButton.TabIndex = 7;
             this.titleButton.Text = "タイトルへ";
             this.titleButton.UseVisualStyleBackColor = false;
+            this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
             // 
             // clearLabel
             // 
@@ -142,7 +143,7 @@ namespace yoketoruvs22
             this.clearLabel.AutoSize = true;
             this.clearLabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clearLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.clearLabel.Location = new System.Drawing.Point(272, 179);
+            this.clearLabel.Location = new System.Drawing.Point(273, 190);
             this.clearLabel.Name = "clearLabel";
             this.clearLabel.Size = new System.Drawing.Size(254, 86);
             this.clearLabel.TabIndex = 8;
