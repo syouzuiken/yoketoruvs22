@@ -47,7 +47,7 @@ namespace yoketoruvs22
         [DllImport("user32.dll")]
 
         public static extern short GetAsyncKeyState(int vKey);
-
+        int itemCount = 0;
         public Form1()
         {
             InitializeComponent();
@@ -106,6 +106,8 @@ namespace yoketoruvs22
 
             for(int i=EnemyIndex;i<ChrMax;i++)
             {
+                //if (!chrs[i].Visible) continue;
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
                 if (chrs[i].Left < 0)
@@ -126,6 +128,31 @@ namespace yoketoruvs22
                 if (chrs[i].Bottom > ClientSize.Height)
                 {
                     vy[i] = -Math.Abs(vy[i]);
+                }
+                if ((mp.X >= chrs[i].Left)
+                && (mp.X < chrs[i].Right)
+                && (mp.Y >= chrs[i].Top)
+                && (mp.Y < chrs[i].Bottom)
+                )
+                {
+                    //MessageBox.Show("当たった！");
+                    if(i<ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        chrs[i].Visible=false;
+                        itemCount--;
+                        if(itemCount<=0)
+                        {
+                            nextState = State.Clear;
+                        }
+                        label3.Text = $"★:{itemCount:00}";
+                        vx[i] = 0;
+                        vy[i] = 0;
+                        chrs[i].Left = 10000;
+                    }
                 }
             }
         }
@@ -159,6 +186,9 @@ namespace yoketoruvs22
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
+
+                    itemCount = ItemMax;
+
                     break;
 
                 case State.Gameover:

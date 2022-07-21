@@ -117,7 +117,7 @@ namespace yoketoruvs22
             this.gameoverLabel.BackColor = System.Drawing.SystemColors.Control;
             this.gameoverLabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameoverLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.gameoverLabel.Location = new System.Drawing.Point(218, 190);
+            this.gameoverLabel.Location = new System.Drawing.Point(216, 179);
             this.gameoverLabel.Name = "gameoverLabel";
             this.gameoverLabel.Size = new System.Drawing.Size(368, 86);
             this.gameoverLabel.TabIndex = 6;
@@ -144,7 +144,7 @@ namespace yoketoruvs22
             this.clearLabel.AutoSize = true;
             this.clearLabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clearLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.clearLabel.Location = new System.Drawing.Point(273, 190);
+            this.clearLabel.Location = new System.Drawing.Point(273, 179);
             this.clearLabel.Name = "clearLabel";
             this.clearLabel.Size = new System.Drawing.Size(254, 86);
             this.clearLabel.TabIndex = 8;
@@ -160,7 +160,7 @@ namespace yoketoruvs22
             // 
             this.tempLabel.AutoSize = true;
             this.tempLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tempLabel.Location = new System.Drawing.Point(13, 58);
+            this.tempLabel.Location = new System.Drawing.Point(5, 16);
             this.tempLabel.Name = "tempLabel";
             this.tempLabel.Size = new System.Drawing.Size(44, 37);
             this.tempLabel.TabIndex = 9;
