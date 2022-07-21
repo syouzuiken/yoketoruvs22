@@ -26,6 +26,7 @@ namespace yoketoruvs22
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyrMax;
+        const int StartTime = 100;
 
         const string PlayerText = "(>_<)";
         const string EnemyText = "◆";
@@ -48,6 +49,8 @@ namespace yoketoruvs22
 
         public static extern short GetAsyncKeyState(int vKey);
         int itemCount = 0;
+        int time = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -100,13 +103,15 @@ namespace yoketoruvs22
 
         void UpdateGame()
         {
+            time--;
+            timelabel.Text = "Time"+time;
             Point mp = PointToClient(MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
 
             for(int i=EnemyIndex;i<ChrMax;i++)
             {
-                //if (!chrs[i].Visible) continue;
+                if (!chrs[i].Visible) continue;
 
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
@@ -149,9 +154,9 @@ namespace yoketoruvs22
                             nextState = State.Clear;
                         }
                         label3.Text = $"★:{itemCount:00}";
-                        vx[i] = 0;
-                        vy[i] = 0;
-                        chrs[i].Left = 10000;
+                        //vx[i] = 0;
+                        //vy[i] = 0;
+                        //chrs[i].Left = 10000;
                     }
                 }
             }
@@ -188,7 +193,7 @@ namespace yoketoruvs22
                     }
 
                     itemCount = ItemMax;
-
+                    time = StartTime+1;
                     break;
 
                 case State.Gameover:
