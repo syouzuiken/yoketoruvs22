@@ -92,7 +92,7 @@ namespace yoketoruvs22
             // 
             this.timelabel.AutoSize = true;
             this.timelabel.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.timelabel.Location = new System.Drawing.Point(44, 13);
+            this.timelabel.Location = new System.Drawing.Point(12, 9);
             this.timelabel.Name = "timelabel";
             this.timelabel.Size = new System.Drawing.Size(149, 45);
             this.timelabel.TabIndex = 4;
@@ -160,11 +160,12 @@ namespace yoketoruvs22
             // 
             this.tempLabel.AutoSize = true;
             this.tempLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tempLabel.Location = new System.Drawing.Point(5, 16);
+            this.tempLabel.Location = new System.Drawing.Point(12, 54);
             this.tempLabel.Name = "tempLabel";
             this.tempLabel.Size = new System.Drawing.Size(44, 37);
             this.tempLabel.TabIndex = 9;
             this.tempLabel.Text = "★";
+            this.tempLabel.Visible = false;
             // 
             // Form1
             // 

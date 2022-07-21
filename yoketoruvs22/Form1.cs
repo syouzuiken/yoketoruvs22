@@ -50,6 +50,7 @@ namespace yoketoruvs22
         public static extern short GetAsyncKeyState(int vKey);
         int itemCount = 0;
         int time = 0;
+        int hiscore = 0;
 
         public Form1()
         {
@@ -210,6 +211,11 @@ namespace yoketoruvs22
                     clearLabel.Visible = true;
                     titleButton.Visible = true;
                     hiLabel.Visible = true;
+                    if(time>hiscore)
+                    {
+                        hiscore = time;
+                        hiLabel.Text = "Hiscore" + hiscore;
+                    }
                     break;
             }
         }
